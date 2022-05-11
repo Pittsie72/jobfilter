@@ -1,7 +1,9 @@
-# jobfilter
+# JobFilter
 
 I'm sick of searching. Get all the searches in one CSV, hopefully that helps me get a job
 that pays more.
+
+This is not mine I simply added somethings to it and modified it
 
 main file:  ```jobfilter.py ```
 
@@ -24,3 +26,4 @@ Important: Implement a filter and add a cool visualizer.
 - [ ] finish writing the functions to include search parameters.
 - [ ] use pandas to fix the CSV.
 - [ ] clean data.
+- [ ] Change to input your search terms and location
