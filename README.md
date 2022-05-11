@@ -21,7 +21,7 @@ Important: Implement a filter and add a cool visualizer.
 
 
 - [ ] Remove api_keys.
-- [ ] Finish indeed? (http://jooble.org) ... Need to find duplicated  and remove it. 
+- [?] Finish indeed? (http://jooble.org) ... Need to find duplicated  and remove it. (Working I won't call it finished though)
 - [ ] Finish terminal options
 - [ ] finish writing the functions to include search parameters.
 - [ ] use pandas to fix the CSV.
