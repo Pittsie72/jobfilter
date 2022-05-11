@@ -1,30 +1,30 @@
 import requests
 import csv
 
-cookies = {
+def indeed_api(search,town,state):
+    cookies = {
 
-}
+    }
 
-headers = {
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-    # 'Accept-Encoding': 'gzip, deflate, br',
-    'Host': 'www.indeed.com',
-    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.1 Safari/605.1.15',
-    'Accept-Language': 'en-us',
-    'Connection': 'keep-alive',
-}
-# https://www.indeed.com/jobs?q=Lab%20Assistant&l=Katy%2C%20TX&vjk=4d89c2165ee972d7&advn=2337189061980106
+    headers = {
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        # 'Accept-Encoding': 'gzip, deflate, br',
+        'Host': 'www.indeed.com',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.1 Safari/605.1.15',
+        'Accept-Language': 'en-us',
+        'Connection': 'keep-alive',
+    }
+    # https://www.indeed.com/jobs?q=Lab%20Assistant&l=Katy%2C%20TX&vjk=4d89c2165ee972d7&advn=2337189061980106
 
-params = {
-    'q': 'Human Resource',
-    'l': 'Williamstown, NJ',
-  
+    params = {
+        'q': search,
+        'l': town + "," + state,
+      
 
 
-}
+    }
 
-response = requests.get('https://www.indeed.com/jobs', headers=headers, params=params, cookies=cookies)
-def indeed_api():
+    response = requests.get('https://www.indeed.com/jobs', headers=headers, params=params, cookies=cookies)
     for content in response.content.decode('utf-8').split('\n'):
     # pprint.pprint(content)
     

@@ -21,7 +21,6 @@ def ziprecruiter_api(search,radius,city,state_abbrev):
 
     response = requests.get('https://api.ziprecruiter.com/jobs-app/jobs', headers=headers, params=params)
     data = response.json()
-    print(data)
     # return data
     for job in data['jobs']:
         site_name = "ziprecruiter"

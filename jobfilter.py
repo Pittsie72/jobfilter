@@ -72,18 +72,30 @@ def cleanUp():
         os.remove('glassdoor_jobs.html')
         
 
-def start_Job_Search():
-    glassdoor.glassdoor_api(keyword= 'Human Resource')
-    glassdoor.glassdoor_api_steel(keyword= 'Human Resource')
-    ziprecruiter.ziprecruiter_api(search='Human Resource',radius = 25,city= "Williamstown",state_abbrev="NJ")
-    ziprecruiter.ziprecruiter_api(search='Human Resource',radius = 25,city= "Steelmantown",state_abbrev="NJ")
-    indeed.indeed_api()
+def start_Job_Search(search,town,state):
+    search = search
+    town = town
+    state = state
+    if town == 'Williamstown':
+        glassdoor.glassdoor_api(search)
+    elif town == 'Steelmantown':
+        glassdoor.glassdoor_api_steel(search)
+    else:
+        print("Glassdoor will not be searched")
+    ziprecruiter.ziprecruiter_api(search = search,radius = 25,city = town,state_abbrev = state)
+    indeed.indeed_api(search,town,state)
 
 
 
 
-
-removeOldCsv()
-start_Job_Search()
-cleanUp()
-read_csv()
+if __name__ == '__main__':
+    print("Enter Search Criteria:")
+    search = map(str, input())
+    
+    print("Enter Search Location as City,State abbreviation:")
+    town, state = map(str, input().split(","))
+    
+    removeOldCsv()
+    start_Job_Search(search,town,state)
+    cleanUp()
+    read_csv()

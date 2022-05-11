@@ -23,6 +23,7 @@ def request_searchUrl(keyword):
         #Williamstown 1127169
         #Steelmantown 3717469
         'locId': '1127169',
+        #'locName': city + ',' + state,
         'locT': 'C',
         'keyword': '{}'.format(keyword),
         'action': 'jobs',
@@ -51,8 +52,8 @@ def request_searchUrl_steel(keyword):
         #Hammonton 1126651
         #Williamstown 1127169
         #Steelmantown 3717469
-        #'locId': '3717469',
-        'locName': 'Steelmantown, NJ',
+        'locId': '3717469',
+        #'locName': 'Steelmantown, NJ',
         'locT': 'C',
         'keyword': '{}'.format(keyword),
         'action': 'jobs',
@@ -66,7 +67,6 @@ def request_searchUrl_steel(keyword):
     response = requests.get('https://api.glassdoor.com/api-internal/api.htm', headers=headers, params=params)
     attributionURL = response.json()['response']['attributionURL']
     return attributionURL
-
 
 
 def add_job_to_list(job_url,api):
