@@ -4,6 +4,7 @@ import csv
 
 
 def ziprecruiter_api(search,radius,city,state_abbrev):
+    print(search,radius,city,state_abbrev)
     
     headers = {
     'User-Agent': 'Job Search/3084 (iPhone; CPU iOS 14_0 like Mac OS X)',
@@ -12,7 +13,7 @@ def ziprecruiter_api(search,radius,city,state_abbrev):
 
     params = {
         'allow_currency': 'USD',
-        'days': '2',
+        'days': '30',
         'location': '{}, {}'.format(city,state_abbrev),
         'radius': '{}'.format(radius),
         'search': '{}'.format(search),
@@ -20,6 +21,7 @@ def ziprecruiter_api(search,radius,city,state_abbrev):
 
     response = requests.get('https://api.ziprecruiter.com/jobs-app/jobs', headers=headers, params=params)
     data = response.json()
+    print(data)
     # return data
     for job in data['jobs']:
         site_name = "ziprecruiter"
