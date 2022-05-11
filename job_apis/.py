@@ -51,8 +51,7 @@ def request_searchUrl_steel(keyword):
         #Hammonton 1126651
         #Williamstown 1127169
         #Steelmantown 3717469
-        #'locId': '3717469',
-        'locName': 'Steelmantown, NJ',
+        'locId': '3717469',
         'locT': 'C',
         'keyword': '{}'.format(keyword),
         'action': 'jobs',
@@ -127,3 +126,4 @@ def glassdoor_api_steel(keyword):
             proc = subprocess.Popen(["curl", "-o", "job_url.html", job_url], stdout=subprocess.PIPE)
             (out, err) = proc.communicate()
             add_job_to_list(job_url,api)
+

@@ -1,5 +1,6 @@
 from job_apis import ziprecruiter
 from job_apis import glassdoor
+from job_apis import indeed
 import webbrowser
 import csv
 import os
@@ -60,7 +61,7 @@ def removeOldCsv():
 
     with open('jobfilter.csv', 'a') as csv_file:
         writer = csv.writer(csv_file)
-        writer.writerow(['hiring_company', 'get_time', 'get_url', 'site_name'])
+        writer.writerow(['hiring_company','Title','Location', 'Posted', 'get_url', 'site_name'])
 
 
 def cleanUp():
@@ -72,8 +73,12 @@ def cleanUp():
         
 
 def start_Job_Search():
-    glassdoor.glassdoor_api(keyword= 'lab assistant')
-    ziprecruiter.ziprecruiter_api(search='lab assistant',radius = 10,city= "Houston",state_abbrev="TX")
+    glassdoor.glassdoor_api(keyword= 'Human Resource')
+    glassdoor.glassdoor_api_steel(keyword= 'Human Resource')
+    ziprecruiter.ziprecruiter_api(search='Human Resource',radius = 25,city= "Williamstown",state_abbrev="NJ")
+    ziprecruiter.ziprecruiter_api(search='Human Resource',radius = 25,city= "Steelmantown",state_abbrev="NJ")
+    indeed.indeed_api()
+
 
 
 
@@ -82,4 +87,3 @@ removeOldCsv()
 start_Job_Search()
 cleanUp()
 read_csv()
-

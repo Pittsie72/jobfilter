@@ -25,7 +25,11 @@ def ziprecruiter_api(search,radius,city,state_abbrev):
         site_name = "ziprecruiter"
         hiring_company = job['hiring_company']['name']
         get_time = job['posted_time_friendly']
+        title = job['name']
+        loc = job['job_location']
         get_url = job['job_url'] 
         with open('jobfilter.csv', 'a') as csv_file:
             writer = csv.writer(csv_file)
-            writer.writerow([hiring_company, get_time, get_url,site_name])
+            writer.writerow([hiring_company,title,loc, get_time, get_url,site_name])
+
+#ziprecruiter_api(search='Human Resource',radius = 25,city= "Williamstown",state_abbrev="NJ")
